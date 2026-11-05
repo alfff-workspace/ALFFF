@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="ALFFF — your personal AI assistant">
+  <title>ALFFF — Personal AI</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <div class="brand"><div class="logo">A</div><div><b>ALFFF</b><small>PERSONAL AI</small></div></div>
+      <div class="top-actions"><span class="status"><i></i> READY</span><button id="clear" class="ghost" aria-label="Clear conversation">＋</button></div>
+    </header>
+    <section class="conversation" id="conversation">
+      <div class="intro" id="intro">
+        <div class="orb">A</div>
+        <p class="tag">YOUR SPACE. YOUR IDEAS.</p>
+        <h1>What can we<br><em>figure out?</em></h1>
+        <p class="sub">I'm ALFFF. Ask a question, learn something, or build an idea.</p>
+        <div class="prompts">
+          <button data-prompt="Teach me a topic step by step.">✦ <span><b>Learn</b><small>Explain a topic simply</small></span></button>
+          <button data-prompt="Help me plan my study day.">◷ <span><b>Plan</b><small>Organise my day</small></span></button>
+          <button data-prompt="Help me write a small program.">⌘ <span><b>Create</b><small>Build with code</small></span></button>
+          <button data-prompt="Give me three creative project ideas.">✧ <span><b>Explore</b><small>Discover ideas</small></span></button>
+        </div>
+        <p class="mode-note" id="modeNote">Demo mode · Connect an AI endpoint in config.js for real AI.</p>
+      </div>
+      <div id="messages" class="messages" aria-live="polite"></div>
+    </section>
+    <form id="form" class="composer">
+      <textarea id="prompt" rows="1" maxlength="6000" placeholder="Message ALFFF..." aria-label="Message ALFFF"></textarea>
+      <div class="compose-bottom">
+        <span>Enter to send · Shift + Enter for new line</span>
+        <div><button type="button" id="mic" class="mic" aria-label="Voice typing">🎙</button><button class="send" id="send" aria-label="Send">↑</button></div>
+      </div>
+    </form>
+    <footer>ALFFF can make mistakes. Check important information.</footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js" defer></script>
+  <script>if('serviceWorker' in navigator && location.protocol.startsWith('http')) addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));</script>
+</body>
+</html>
